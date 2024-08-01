@@ -10,6 +10,7 @@ registerLocaleData(ptBr, 'pt-BR');
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { appEffects, appReducer } from './shared/store/app.state';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,8 +24,8 @@ import { AngularMaterialModule } from './core/modules/angular-material.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([]),
+    StoreModule.forRoot(appReducer),
+    EffectsModule.forRoot(appEffects),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
