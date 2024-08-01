@@ -13,6 +13,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AngularMaterialModule } from './core/modules/angular-material.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AppComponent } from './app.component';
       maxAge: 25,
       logOnly: environment.production
     }),
+    AngularMaterialModule,
   ],
   providers: [
     {

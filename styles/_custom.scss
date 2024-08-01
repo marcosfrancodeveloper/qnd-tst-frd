@@ -1,0 +1,40 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+$primary-palette: mat-palette($primary);
+$accent-palette: mat-palette($blue);
+$warn-palette: mat-palette($danger);
+
+$background-palette: (
+  background: $soft-background-color,
+  card: $white,
+  dialog: $white,
+  disabled-button: $gray-300,
+  raised-button: $white,
+  focused-button: $white,
+  selected-button: $gray-200,
+  selected-disabled-button: $gray-100,
+  hover: $gray-100,
+  card-hover: $gray-50
+);
+
+$text-palette: (
+  primary: $font-color,
+  secondary: $gray-600,
+  disabled: $gray-400,
+  hint: $gray-500
+);
+
+$custom-theme: mat-light-theme(
+  (
+    color: (
+      primary: $primary-palette,
+      accent: $accent-palette,
+      warn: $warn-palette
+    ),
+    background: $background-palette,
+    foreground: $text-palette
+  )
+);
+
+@include angular-material-theme($custom-theme);
