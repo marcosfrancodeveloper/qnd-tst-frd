@@ -8,15 +8,23 @@ const _authReducer = createReducer(
   on(login, state => ({
     ...state,
     user: null,
-    error: null
+    error: null,
+    loading: true,
+    isAuthenticated: false,
   })),
   on(loginSuccess, (state, { user }) => ({
     ...state,
-    user
+    user,
+    error: null,
+    loading: false,
+    isAuthenticated: true,
   })),
   on(loginFailure, (state, { error }) => ({
     ...state,
-    error
+    user: null,
+    error,
+    loading: false,
+    isAuthenticated: false,
   })),
 );
 

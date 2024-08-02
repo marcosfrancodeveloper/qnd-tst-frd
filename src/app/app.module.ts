@@ -12,9 +12,11 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appEffects, appReducer } from './shared/store/app.state';
 
+import { AngularMaterialModule } from './core/modules/angular-material.module';
+import { SharedModule } from './shared/shared.module';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AngularMaterialModule } from './core/modules/angular-material.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { AngularMaterialModule } from './core/modules/angular-material.module';
       maxAge: 25,
       logOnly: environment.production
     }),
+    SharedModule,
     AngularMaterialModule,
   ],
   providers: [
