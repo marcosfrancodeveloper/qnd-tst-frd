@@ -1,6 +1,7 @@
 // Configuration
-@import 'variables';
-@import 'custom';
+@import '_variables';
+@import '_functions';
+@import '_theme';
 
 // Utilities
-@import 'typography';
+@import '_typography';

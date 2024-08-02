@@ -1,0 +1,19 @@
+@use "@angular/material" as mat;
+@import "@angular/material/theming";
+@include mat-core();
+
+$primary-colors-mapped: generate-map-colors($primary);
+$accent-colors-mapped: generate-map-colors($blue);
+$warn-colors-mapped: generate-map-colors($danger);
+
+$primary-pallete: mat.define-palette($primary-colors-mapped);
+$accent-pallete: mat.define-palette($accent-colors-mapped);
+$warn-pallete: mat.define-palette($warn-colors-mapped);
+
+$custom-theme: mat.define-light-theme(
+  $primary-pallete,
+  $accent-pallete,
+  $warn-pallete
+);
+
+@include mat.all-component-themes($custom-theme);
