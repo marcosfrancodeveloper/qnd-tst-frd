@@ -1,0 +1,33 @@
+.container {
+  @include container;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$grid-gutter;
+  margin-right: -$grid-gutter;
+}
+
+.col {
+  box-sizing: border-box;
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
+}
+
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    @include column($i);
+  }
+}
+
+// Responsividade
+@each $breakpoint in map-keys($breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+
+    .hidden#{$infix} { display: none !important; }
+    .show#{$infix} { display: block !important; }
+
+    @for $i from 1 through 12 {
+      .col#{$infix}-#{$i} { @include column($i); }
+    }
+  }
+}

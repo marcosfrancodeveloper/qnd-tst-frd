@@ -1,0 +1,13 @@
+@mixin container {
+  max-width: $grid-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
+}
+
+@mixin column($size) {
+  $span: calc($size / $grid-columns) * 100%;
+  flex: 0 0 $span;
+  max-width: $span;
+}

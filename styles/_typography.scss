@@ -1,32 +1,39 @@
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-size: $font-size-base !important;
+  font-weight: $font-weight-base !important;
+  font-family: $font-family-base !important;
+  background-color: $background-color !important;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: Poppins, sans-serif;
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-family: Poppins, sans-serif;
+    font-size: map-get(map-get($heading-sizes, $i), font-size);
+    line-height: map-get(map-get($heading-sizes, $i), line-height);
+  }
 }
 
-h1 { font-size: 22px }
-h2 { font-size: 20px }
-h3 { font-size: 18px }
-h4 { font-size: 16px }
-h5 { font-size: 14px }
-h6 { font-size: 12px }
-
 p {
-  font-size: 15px;
-  line-height: 24px;
+  font-size: $font-size-base;
+  line-height: 1.6;
 }
 
 i { font-size: 14px }
 b { font-weight: 500 }
 
 a {
+  color: $primary;
   text-decoration: none !important;
   outline: 0;
 }

@@ -1,0 +1,6 @@
+<div class="contribution-item">
+  <h2 class="contribution-item__title">{{ title }}</h2>
+  <p class="contribution-item__value">Valor da contribuição: R$ {{ value | number:'1.2-2' }}</p>
+  <p *ngIf="percentage" class="contribution-item__percentage">Porcentagem do salário: {{ percentage }}%</p>
+  <button class="contribution-item__button">Alterar Contribuição</button>
+</div>

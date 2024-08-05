@@ -1,8 +1,13 @@
-// Configuration
-@import 'variables';
+// Functions & Mixins
 @import 'functions';
-@import 'theme';
+@import 'mixins';
 
-// Utilities
+// Variables
+@import 'variables';
+
+// Configuration
 @import 'typography';
-@import 'base';
+@import 'grid';
+
+// Material theme
+@import 'theme';

@@ -1,28 +1,67 @@
-<img src="/assets/images/logo.svg" alt="Logo" class="login__form-container__logo">
-<div class="login__form-container__title">
-  <h1>Boas-vindas ao Portal!</h1>
-  <h2>Para começar, qual seu email ou CPF?</h2>
-</div>
-<p class="login__form-container__subtitle">Precisamos desta confirmação para dar início ao seu acesso.</p>
+<form
+  [formGroup]="loginForm"
+  (ngSubmit)="onSubmit()"
+  class="login__form"
+>
+  <header class="login__form__header">
+    <img
+      src="/assets/images/logo.svg"
+      alt="Logo"
+      class="login__form__header__logo"
+    />
+    <div class="login__form__header__title">
+      <h1>Boas-vindas ao Portal!</h1>
+      <h2>Para começar, qual seu email ou CPF?</h2>
+    </div>
+    <p class="login__form__header__subtitle">
+      Precisamos desta confirmação para dar início ao seu acesso.
+    </p>
+  </header>
 
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login__form-container__form">
-  <mat-form-field appearance="outline" class="login__form-container__form__form-field">
-    <mat-label>Email ou CPF</mat-label>
-    <input matInput formControlName="emailOrCpf" required />
-    <mat-icon matSuffix>check_circle</mat-icon>
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="login__form-container__form__form-field">
-    <mat-label>Senha</mat-label>
-    <input matInput type="password" formControlName="password" required />
-    <mat-icon matSuffix>check_circle</mat-icon>
-  </mat-form-field>
-  <button
-    mat-raised-button
-    color="primary"
-    type="submit"
-    class="login__form-container__form__submit"
-  >ACESSAR</button>
+  <main class="login__form__fields">
+    <mat-form-field appearance="outline">
+      <mat-label>Email ou CPF</mat-label>
+      <input
+        matInput
+        formControlName="emailOrCpf"
+        required
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Senha</mat-label>
+      <input
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        formControlName="password"
+        required
+        autocomplete="new-password"
+      />
+      <mat-icon
+        matSuffix
+        class="login__form__fields__password-icon"
+        (click)="hide = !hide"
+      >
+        {{ hide ? 'visibility_off' : 'visibility' }}
+      </mat-icon>
+    </mat-form-field>
+  </main>
+
+  <footer class="login__form__footer">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      class="login__form__footer__submit"
+    >Acessar</button>
+
+    <div class="login__form__footer__forgot-password">
+      Esqueceu a senha?
+      <a
+        routerLink="/forgot-password"
+        class="login__form__footer__forgot-password__link"
+      > Acesse aqui</a>
+    </div>
+    <span class="login__form__footer__version">Versão 0.01</span>
+  </footer>
 </form>
-
-<a routerLink="/forgot-password" class="login__form-container__forgot-password">Esqueceu a senha? Acesse aqui</a>
-<p class="login__form-container__version">Versão 0.01</p>

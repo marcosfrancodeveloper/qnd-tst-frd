@@ -1,1 +1,25 @@
-<h1>It's work</h1>
+<div class="contribution">
+  <div class="contribution__header">
+    <h1 class="contribution__title">Contribuições</h1>
+    <p class="contribution__total">Total em contribuições: R$ 999.999,99</p>
+  </div>
+  <div class="contribution__chart">
+    <!-- Coloque aqui o gráfico de contribuições -->
+  </div>
+  <div class="contribution__list">
+    <app-contribution-item
+      class="contribution__item"
+      [title]="'Contribuição mensal'"
+      [value]="500.00"
+      [percentage]="5"
+    ></app-contribution-item>
+    <app-contribution-item
+      class="contribution__item"
+      [title]="'Contribuição voluntária'"
+      [value]="500.00"
+    ></app-contribution-item>
+  </div>
+  <button class="contribution__button">
+    Incluir Contribuição
+  </button>
+</div>
