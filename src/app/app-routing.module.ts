@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import { authGuard } from './core/guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -8,7 +9,8 @@ const routes: Routes = [
   },
   {
     path: 'contribution',
-    loadChildren: () => import('./features/contribution/contribution.module').then(m => m.ContributionModule)
+    loadChildren: () => import('./features/contribution/contribution.module').then(m => m.ContributionModule),
+    canActivate: [authGuard]
   },
   {
     path: '',
