@@ -1,4 +1,4 @@
-import { Nullable } from "src/app/core/types/nullable.type";
+import { Nullable } from "src/app/shared/types/nullable.type";
 import { IUser } from "src/app/core/models/user.model";
 import { IError } from "src/app/core/models/error.model";
 

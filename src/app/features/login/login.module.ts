@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
-import { AngularMaterialModule } from 'src/app/core/modules/angular-material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { LoginRoutingModule } from './login-routing.module';
@@ -18,8 +18,11 @@ import { LoginComponent } from './login.component';
     CommonModule,
     LoginRoutingModule,
     ReactiveFormsModule,
-    AngularMaterialModule,
     SharedModule,
+    NgxMaskDirective
+  ],
+  providers: [
+    provideNgxMask(),
   ]
 })
 export class LoginModule { }

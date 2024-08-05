@@ -1,5 +1,5 @@
 <form
-  [formGroup]="loginForm"
+  [formGroup]="form"
   (ngSubmit)="onSubmit()"
   class="login__form"
 >
@@ -26,7 +26,13 @@
         formControlName="emailOrCpf"
         required
         autocomplete="off"
+        [mask]="mask"
+        appFormFieldError="emailOrCpf"
+        #emailOrCpfError="formErrorMessage"
       />
+      <mat-error *ngIf="emailOrCpfError.firstError">
+        {{ emailOrCpfError.firstError }}
+      </mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Senha</mat-label>
@@ -41,6 +47,7 @@
         matSuffix
         class="login__form__fields__password-icon"
         (click)="hide = !hide"
+        aria-label="Alternar a visualização da senha"
       >
         {{ hide ? 'visibility_off' : 'visibility' }}
       </mat-icon>
@@ -53,6 +60,7 @@
       color="primary"
       type="submit"
       class="login__form__footer__submit"
+      aria-label="Acessar a plataforma"
     >Acessar</button>
 
     <div class="login__form__footer__forgot-password">
