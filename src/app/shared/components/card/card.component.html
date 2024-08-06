@@ -1,6 +1,23 @@
-<div class="contribution-item">
-  <h2 class="contribution-item__title">{{ title }}</h2>
-  <p class="contribution-item__value">Valor da contribuição: R$ {{ value | number:'1.2-2' }}</p>
-  <p *ngIf="percentage" class="contribution-item__percentage">Porcentagem do salário: {{ percentage }}%</p>
-  <button class="contribution-item__button">Alterar Contribuição</button>
-</div>
+<article class="card">
+  <header class="card__header">
+    <div class="card__header__icon">
+      <mat-icon>{{ data.icon }}</mat-icon>
+    </div>
+    <h3 class="card__header__title">{{ data.title }}</h3>
+    <mat-icon class="card__header__arrow">chevron_right</mat-icon>
+  </header>
+  <hr class="divider" />
+  <main class="card__content">
+    <div *ngFor="let item of data.content" class="card__content__item">
+      <span class="card__content__label">{{ item.label }}</span>
+      <span class="card__content__value">{{ item.value }}</span>
+    </div>
+    <a
+      *ngIf="data?.link"
+      [routerLink]="data.link.url"
+      class="card__content__link"
+    >
+      {{ data.link.text }}
+    </a>
+  </main>
+</article>

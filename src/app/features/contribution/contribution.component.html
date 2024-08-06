@@ -1,8 +1,8 @@
 <app-base-layout>
   <section class="contribution">
     <div class="contribution__header">
-      <h1 class="contribution__title">Contribuições</h1>
-      <p class="contribution__total">Total em contribuições: R$ 999.999,99</p>
+      <h1 class="contribution__header__title">Contribuições</h1>
+      <p class="contribution__header__total">Total em contribuições: R$ 999.999,99</p>
     </div>
     <div class="contribution__chart">
       <app-chart
@@ -11,21 +11,16 @@
         [chartOptions]="doughnutChartOptions"
       ></app-chart>
     </div>
-    <hr class="divider" />
+    <hr class="contribution__divider divider" />
     <div class="contribution__list">
-      <app-card
-        class="contribution__item"
-        [title]="'Contribuição mensal'"
-        [value]="500.00"
-        [percentage]="5"
-      ></app-card>
-      <app-card
-        class="contribution__item"
-        [title]="'Contribuição voluntária'"
-        [value]="500.00"
-      ></app-card>
+      <app-card *ngFor="let card of cards" [data]="card"></app-card>
     </div>
-    <button class="contribution__button">
+    <button
+      mat-raised-button
+      color="primary"
+      class="contribution__button"
+      type="button"
+    >
       Incluir Contribuição
     </button>
   </section>

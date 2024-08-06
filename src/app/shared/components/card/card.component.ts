@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ICardData } from './card.model';
 
 @Component({
   selector: 'app-card',
@@ -6,7 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-  @Input() title!: string;
-  @Input() value!: number;
-  @Input() percentage?: number;
+  @Input() data!: ICardData;
 }

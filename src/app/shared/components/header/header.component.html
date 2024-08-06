@@ -1,10 +1,19 @@
 <header class="container header" *ngIf="(user$ | async) as user">
   <div class="header__profile">
-    <img
-      [src]="user?.avatar"
-      alt="Foto de perfil"
-      class="header__profile__image"
-    />
+    <button
+      mat-icon-button
+      class="header__profile__avatar"
+      [matMenuTriggerFor]="menu"
+    >
+      <img
+        [src]="user?.avatar"
+        alt="Foto de perfil"
+        class="header__profile__avatar__image"
+      />
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="onLogout()">Sair</button>
+    </mat-menu>
   </div>
   <div class="header__icons">
     <button mat-icon-button aria-label="Home">

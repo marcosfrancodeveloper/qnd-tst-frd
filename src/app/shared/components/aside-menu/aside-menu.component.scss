@@ -51,6 +51,16 @@
       text-decoration: none;
       color: $gray-900;
 
+      &.active {
+        color: $primary;
+
+        .aside-menu__nav__link__icon,
+        .aside-menu__nav__link__text,
+        .aside-menu__nav__link__arrow {
+          color: $primary;
+        }
+      }
+
       &:hover {
         background-color: $light;
       }

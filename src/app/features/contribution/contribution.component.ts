@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ChartData, ChartOptions } from 'chart.js';
+import { ICardData } from 'src/app/shared/components/card/card.model';
 
 @Component({
   selector: 'app-contribution',
@@ -32,4 +33,25 @@ export class ContributionComponent {
       },
     },
   };
+
+  cards: ICardData[] = [
+    {
+      icon: 'attach_money',
+      title: 'Contribuição mensal',
+      content: [
+        { label: 'Valor da contribuição', value: 'R$ 500,00' },
+        { label: 'Porcentagem do salário', value: '5%' }
+      ],
+      link: { text: 'Alterar contribuição', url: '#' }
+    },
+    {
+      icon: 'money_off',
+      title: 'Contribuição voluntária',
+      content: [
+        { label: 'Valor da contribuição', value: 'R$ 300,00' },
+        { label: 'Porcentagem do salário', value: '3%' }
+      ],
+      link: { text: 'Alterar contribuição', url: '#' }
+    }
+  ];
 }

@@ -22,7 +22,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -48,7 +48,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatExpansionModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatListModule,
+    MatMenuModule,
     MatAutocompleteModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
@@ -77,7 +77,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatExpansionModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatListModule,
+    MatMenuModule,
     MatAutocompleteModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,

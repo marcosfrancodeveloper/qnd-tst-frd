@@ -18,3 +18,7 @@ export const loginFailure = createAction(
 export const resetState = createAction(
   '[Auth] Reset state'
 );
+
+export const logout = createAction(
+  '[Auth] Logout'
+);

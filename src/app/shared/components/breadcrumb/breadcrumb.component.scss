@@ -6,6 +6,15 @@
   padding: 16px;
   position: relative;
 
+  &__divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $gray-300;
+  }
+
   &__link {
     display: flex;
     align-items: center;

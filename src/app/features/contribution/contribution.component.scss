@@ -8,20 +8,24 @@
   &__header {
     text-align: center;
     margin-bottom: 20px;
-  }
 
-  &__title {
-    font-size: 24px;
-    font-weight: bold;
-  }
+    &__title {
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-  &__total {
-    font-size: 18px;
-    color: $gray-700;
+    &__total {
+      font-size: 18px;
+      color: $gray-700;
+    }
   }
 
   &__chart {
     width: 100%;
+  }
+
+  &__divider {
+    margin: 20px 0;
   }
 
   &__list {
@@ -30,20 +34,12 @@
     gap: 20px;
   }
 
-  &__item {
-    border: 1px solid $gray-300;
-    padding: 10px;
-    border-radius: 5px;
-  }
-
   &__button {
     margin-top: 20px;
     align-self: center;
     padding: 10px 20px;
-    background-color: $primary;
-    color: $white;
-    border: none;
-    border-radius: 5px;
+    color: $white !important;
+    text-transform: uppercase;
     cursor: pointer;
   }
 }

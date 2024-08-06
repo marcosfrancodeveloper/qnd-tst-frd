@@ -5,7 +5,12 @@
     <p class="aside-menu__header__subtitle">O que você quer fazer?</p>
   </div>
   <nav class="aside-menu__nav">
-    <a class="aside-menu__nav__link" *ngFor="let item of menuItems" [routerLink]="item.route">
+    <a
+      *ngFor="let item of menuItems"
+      class="aside-menu__nav__link"
+      [routerLink]="item.route"
+      [ngClass]="{'active': item.active}"
+    >
       <div class="aside-menu__nav__link__icon">
         <mat-icon>{{ item.icon }}</mat-icon>
       </div>
