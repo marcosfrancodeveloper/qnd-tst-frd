@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { NgxMaskDirective } from 'ngx-mask';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 
@@ -20,9 +20,6 @@ import { LoginComponent } from './login.component';
     ReactiveFormsModule,
     SharedModule,
     NgxMaskDirective
-  ],
-  providers: [
-    provideNgxMask(),
   ]
 })
 export class LoginModule { }

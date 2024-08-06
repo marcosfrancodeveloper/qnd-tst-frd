@@ -5,14 +5,12 @@ import { IError } from "src/app/core/models/error.model";
 export interface IAuthState {
   user: Nullable<IUser>;
   error: Nullable<IError>;
-  loading: boolean;
   isAuthenticated: boolean;
 }
 
 export const initialAuthState: IAuthState = {
   user: null,
   error: null,
-  loading: false,
   isAuthenticated: false,
 };
 

@@ -2,6 +2,7 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { provideNgxMask } from 'ngx-mask';
 
 import { environment } from 'src/environments/environment';
 import ptBr from '@angular/common/locales/pt';
@@ -11,6 +12,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appEffects, appReducer } from './shared/store/app.state';
+import { metaReducers } from './shared/store/hydratation';
 
 import { SharedModule } from './shared/shared.module';
 
@@ -25,7 +27,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot(appReducer),
+    StoreModule.forRoot(appReducer, { metaReducers }),
     EffectsModule.forRoot(appEffects),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
@@ -34,6 +36,7 @@ import { AppComponent } from './app.component';
     SharedModule,
   ],
   providers: [
+    provideNgxMask(),
     {
       provide: LOCALE_ID,
       useValue: 'pt-BR'

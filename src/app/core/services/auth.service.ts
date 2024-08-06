@@ -4,20 +4,27 @@ import { Observable, of, throwError } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 import { mockUser } from 'src/app/shared/mock/user.mock';
+import { CommonsService } from 'src/app/shared/services/commons.service';
 import { IUser } from '../models/user.model';
 import { IError } from '../models/error.model';
+import { NgxMaskService } from 'ngx-mask';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  constructor(
+    private _commonService: CommonsService,
+    private _ngxMaskService: NgxMaskService,
+  ) {}
+
   login(
     emailOrCpf: string,
     password: string
   ): Observable<IUser | IError> {
     if (this._validate(emailOrCpf, password)) {
       return of(mockUser)
-        .pipe(delay(2000));
+        .pipe(delay(5000));
     }
 
     const response: IError = {
@@ -26,13 +33,20 @@ export class AuthService {
       message: 'Credencias inválidas.',
     };
     return throwError(() => response)
-      .pipe(delay(2000));
+      .pipe(delay(5000));
   }
 
   private _validate(
     emailOrCpf: string,
     password: string
   ): boolean {
+    if (this._commonService.isCpf(emailOrCpf)) {
+      emailOrCpf = this._ngxMaskService.applyMask(
+        emailOrCpf,
+        '000.000.000-00'
+      );
+    }
+
     if (
       emailOrCpf.match(mockUser.email) ||
       emailOrCpf.match(mockUser.cpf)
@@ -44,6 +58,6 @@ export class AuthService {
 
   logout(): Observable<any> {
     return of(null)
-      .pipe(delay(2000));
+      .pipe(delay(5000));
   }
 }
