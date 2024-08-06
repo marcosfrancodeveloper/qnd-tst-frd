@@ -4,7 +4,7 @@ Quando Previdência
 > Projeto gerado através do [Angular CLI](https://github.com/angular/angular-cli).
 
 ## Índice
-- [Quando Previdência](#quando previdência)
+- [Quando Previdência](#quando)
   - [Índice](#índice)
     - [Intuíto](#intuíto)
     - [Execução](#execução)
