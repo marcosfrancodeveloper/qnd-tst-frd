@@ -23,7 +23,7 @@ export class AsideMenuComponent {
     {
       icon: 'attach_money',
       text: 'Contribuição Mensal',
-      route: '/contribuicao-mensal',
+      route: '/contribution',
       active: true
     },
     {

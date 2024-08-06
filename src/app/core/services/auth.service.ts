@@ -2,19 +2,21 @@ import { Injectable } from '@angular/core';
 import { HttpStatusCode } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { NgxMaskService } from 'ngx-mask';
 
 import { mockUser } from 'src/app/shared/mock/user.mock';
-import { CommonsService } from 'src/app/shared/services/commons.service';
+import { CommonService } from 'src/app/shared/services/common.service';
 import { IUser } from '../models/user.model';
 import { IError } from '../models/error.model';
-import { NgxMaskService } from 'ngx-mask';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  private readonly _defaultDelay = 3000;
+
   constructor(
-    private _commonService: CommonsService,
+    private _commonService: CommonService,
     private _ngxMaskService: NgxMaskService,
   ) {}
 
@@ -24,7 +26,7 @@ export class AuthService {
   ): Observable<IUser | IError> {
     if (this._validate(emailOrCpf, password)) {
       return of(mockUser)
-        .pipe(delay(5000));
+        .pipe(delay(this._defaultDelay));
     }
 
     const response: IError = {
@@ -33,7 +35,7 @@ export class AuthService {
       message: 'Credencias inválidas.',
     };
     return throwError(() => response)
-      .pipe(delay(5000));
+      .pipe(delay(this._defaultDelay));
   }
 
   private _validate(
@@ -58,6 +60,6 @@ export class AuthService {
 
   logout(): Observable<any> {
     return of(null)
-      .pipe(delay(5000));
+      .pipe(delay(this._defaultDelay));
   }
 }

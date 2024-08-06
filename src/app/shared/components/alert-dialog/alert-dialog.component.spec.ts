@@ -1,13 +1,14 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   MatDialogModule,
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { AlertDialogComponent } from './alert-dialog.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-xdescribe('AlertDialogComponent', () => {
+import { AlertDialogComponent } from './alert-dialog.component';
+
+describe('AlertDialogComponent', () => {
   let component: AlertDialogComponent;
   let fixture: ComponentFixture<AlertDialogComponent>;
 
@@ -37,11 +38,11 @@ xdescribe('AlertDialogComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Deve criar', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should initialize with the provided message', () => {
+  it('Deve inicializar com a mensagem fornecida', () => {
     expect(component.message).toBe('Test message');
   });
 });

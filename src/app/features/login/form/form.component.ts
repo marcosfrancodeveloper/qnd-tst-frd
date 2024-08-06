@@ -11,7 +11,7 @@ import { IAppState } from 'src/app/shared/store/app.state';
 import { startLoading, stopLoading } from 'src/app/shared/store/loading/loading.actions';
 import { IError } from 'src/app/core/models/error.model';
 import { DialogService } from 'src/app/shared/services/dialog.service';
-import { CommonsService } from 'src/app/shared/services/commons.service';
+import { CommonService } from 'src/app/shared/services/common.service';
 
 @Component({
   selector: 'app-login-form',
@@ -31,7 +31,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     private _formBuilder: FormBuilder,
     private _router: Router,
     private _dialogService: DialogService,
-    private _commonService: CommonsService,
+    private _commonService: CommonService,
   ) {}
 
   ngOnInit(): void {
@@ -100,10 +100,8 @@ export class LoginFormComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this._destroy$))
       .subscribe((error: Nullable<IError>) => {
         if (error) {
-          [
-            resetState(),
-            stopLoading()
-          ].forEach(this._store.dispatch);
+          this._store.dispatch(resetState());
+          this._store.dispatch(stopLoading());
           this._dialogService.alert(error.message);
         }
       });

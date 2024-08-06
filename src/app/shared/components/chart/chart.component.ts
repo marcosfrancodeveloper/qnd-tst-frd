@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ChartData, ChartDataset, ChartOptions } from 'chart.js';
+import { ChartData, ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-chart',
