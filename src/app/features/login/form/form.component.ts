@@ -74,7 +74,6 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
     field.setValidators(validators);
     field.updateValueAndValidity();
-    console.log(field);
   }
 
   onSubmit(): void {
@@ -103,7 +102,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
         if (error) {
           [
             resetState(),
-            stopLoading(),
+            stopLoading()
           ].forEach(this._store.dispatch);
           this._dialogService.alert(error.message);
         }

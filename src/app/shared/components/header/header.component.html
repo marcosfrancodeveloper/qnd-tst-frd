@@ -1,0 +1,20 @@
+<header class="container header" *ngIf="(user$ | async) as user">
+  <div class="header__profile">
+    <img
+      [src]="user?.avatar"
+      alt="Foto de perfil"
+      class="header__profile__image"
+    />
+  </div>
+  <div class="header__icons">
+    <button mat-icon-button aria-label="Home">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Visibilidade">
+      <mat-icon>visibility</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Recarregar">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+</header>

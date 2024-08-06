@@ -1,0 +1,16 @@
+<aside class="aside-menu">
+  <div class="aside-menu__header">
+    <mat-icon class="aside-menu__header__icon">badge</mat-icon>
+    <h2 class="aside-menu__header__title">Meu plano</h2>
+    <p class="aside-menu__header__subtitle">O que você quer fazer?</p>
+  </div>
+  <nav class="aside-menu__nav">
+    <a class="aside-menu__nav__link" *ngFor="let item of menuItems" [routerLink]="item.route">
+      <div class="aside-menu__nav__link__icon">
+        <mat-icon>{{ item.icon }}</mat-icon>
+      </div>
+      <span class="aside-menu__nav__link__text">{{ item.text }}</span>
+      <mat-icon class="aside-menu__nav__link__arrow">chevron_right</mat-icon>
+    </a>
+  </nav>
+</aside>

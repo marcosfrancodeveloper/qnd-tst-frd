@@ -1,9 +1,16 @@
+@mixin padding-base {
+  @each $breakpoint, $value in $breakpoints {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      padding: 0 map-get($container-padding-map, $breakpoint);
+    }
+  }
+}
+
 @mixin container {
   max-width: $grid-max-width;
   margin-left: auto;
   margin-right: auto;
-  padding-left: $grid-gutter;
-  padding-right: $grid-gutter;
+  @include padding-base;
 }
 
 @mixin column($size) {

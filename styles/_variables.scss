@@ -94,6 +94,14 @@ $breakpoints: (
   "xl": 1200px  // Extra large devices (large desktops, 1200px and up)
 ) !default;
 
+$container-padding-map: (
+  'xs': 24px,
+  'sm': 64px,
+  'md': 152px,
+  'lg': 152px,
+  'xl': 152px
+) !default;
+
 $grid-columns:    12 !default;
 $grid-gutter:     16px !default;
 $grid-max-width:  1440px !default;

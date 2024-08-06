@@ -1,0 +1,26 @@
+<article class="chart-container">
+  <main class="chart-container__chart">
+    <canvas
+      baseChart
+      [data]="chartData"
+      [labels]="chartLabels"
+      [options]="chartOptions"
+      [type]="'doughnut'"
+    ></canvas>
+  </main>
+  <footer class="chart-container__legend">
+    <div
+      *ngFor="let label of chartData.labels; let i = index"
+      class="chart-container__legend__item"
+    >
+      <span
+        class="chart-container__legend__item__dot"
+        [ngStyle]="{'background-color': datasets.backgroundColor[i]}"
+      ></span>
+      <span class="chart-container__legend__item__text">{{ label }}</span>
+      <span class="chart-container__legend__item__value">
+        R$ {{ datasets.data[i] | currency: 'BRL' : 'symbol' : '1.2-2' }}
+      </span>
+    </div>
+  </footer>
+</article>
